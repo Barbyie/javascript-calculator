@@ -130,17 +130,22 @@ buttonEquals.addEventListener("click", () => {
   switch (operator) {
     case "+":
       display.textContent = operate(firstNumber, add, displayValue);
+      displayValue = operate(firstNumber, add, displayValue);
       break;
     case "-":
       display.textContent = operate(firstNumber, subtract, displayValue);
+      displayValue = operate(firstNumber, subtract, displayValue);
       break;
     case "*":
       display.textContent = operate(firstNumber, multiply, displayValue);
+      displayValue = operate(firstNumber, multiply, displayValue);
       break;
     case "/":
       display.textContent = operate(firstNumber, divide, displayValue);
+      displayValue = operate(firstNumber, divide, displayValue);
       break;
   };
+  firstNumber = "";
 });
 
 let buttonClear= document.querySelector(".clear");
