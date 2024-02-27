@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+ }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  height: 40rem;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.display {
+  margin: 1rem;
+  height: 5rem;
+  width: 20rem;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 35rem;
+  margin: 1rem;
+  gap: 0.3rem;
+}
+
+.add, .seven, .eight, .nine, .subtract, .four, 
+.five, .six, .multiply, .one, .two, .three, .divide, .zero,
+.equals, .clear {
+  border: 2px solid black;
+  border-radius: 25px;
+  width: 4.7rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+}
