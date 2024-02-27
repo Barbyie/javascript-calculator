@@ -14,11 +14,104 @@ const divide = function(num1, num2) {
   return (num1 / num2);
 };
 
+const operate = function(num1, operator, num2) {
+  return operator(Number(num1), Number(num2));
+};
+
 let firstNumber = 0;
 let secondNumber = 0;
 let operator = "";
+let displayValue = "";
 
-const operate = function(num1, operator, num2) {
-  return operator(num1, num2);
-};
+let display = document.querySelector(".display");
+
+let buttonZero= document.querySelector(".zero");
+buttonZero.addEventListener("click", () => {
+  displayValue += "0"; 
+  display.textContent += 0;
+});
+
+let buttonOne = document.querySelector(".one");
+buttonOne.addEventListener("click", () => {
+  displayValue += "1"; 
+  display.textContent += 1;
+});
+
+let buttonTwo= document.querySelector(".two");
+buttonTwo.addEventListener("click", () => {
+  displayValue += "2"; 
+  display.textContent += 2;
+});
+
+let buttonThree= document.querySelector(".three");
+buttonThree.addEventListener("click", () => {
+  displayValue += "3"; 
+  display.textContent += 3;
+});
+
+let buttonFour= document.querySelector(".four");
+buttonFour.addEventListener("click", () => {
+  displayValue += "4"; 
+  display.textContent += 4;
+});
+
+let buttonFive= document.querySelector(".five");
+buttonFive.addEventListener("click", () => {
+  displayValue += "5"; 
+  display.textContent += 5;
+});
+
+let buttonSix= document.querySelector(".six");
+buttonSix.addEventListener("click", () => {
+  displayValue += "6"; 
+  display.textContent += 6;
+});
+
+let buttonSeven= document.querySelector(".seven");
+buttonSeven.addEventListener("click", () => {
+  displayValue += "7"; 
+  display.textContent += 7;
+});
+
+let buttonEight= document.querySelector(".eight");
+buttonEight.addEventListener("click", () => {
+  displayValue += "8"; 
+  display.textContent += 8;
+});
+
+let buttonNine= document.querySelector(".nine");
+buttonNine.addEventListener("click", () => {
+  displayValue += "9";
+  display.textContent += 9;
+});
+
+let buttonAdd= document.querySelector(".add");
+buttonAdd.addEventListener("click", () => {
+  display.textContent += "+";
+});
+
+let buttonSubtract= document.querySelector(".subtract");
+buttonSubtract.addEventListener("click", () => {
+  display.textContent += "-";
+});
+
+let buttonMultiply= document.querySelector(".multiply");
+buttonMultiply.addEventListener("click", () => {
+  display.textContent += "x";
+});
+
+let buttonDivide= document.querySelector(".divide");
+buttonDivide.addEventListener("click", () => {
+  display.textContent += "/";
+});
+
+let buttonEquals= document.querySelector(".equals");
+buttonEquals.addEventListener("click", () => {
+  console.log(displayValue);
+});
+
+let buttonClear= document.querySelector(".clear");
+buttonClear.addEventListener("click", () => {
+  display.textContent = "";
+});
 
