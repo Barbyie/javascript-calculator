@@ -93,61 +93,7 @@ buttonNine.addEventListener("click", () => {
 // One event listener for each button, that will show text in the calculator, and will increase
 // in the displayValue.
 
-let buttonAdd= document.querySelector(".add");
-buttonAdd.addEventListener("click", () => {
-  if (firstNumber !== "") {
-    display.textContent = operate(firstNumber, add, displayValue);
-    displayValue = operate(firstNumber, add, displayValue);
-  }; // This function checks if the firstNumber already has a number saved inside of it.
-     // And if it has, it will run the operation so that we can proceed to the next one.
-  display.textContent += "+";
-  operator =  "";
-  firstNumber = displayValue;
-  displayValue = "";
-  operator =  "+";
-});
-
-let buttonSubtract= document.querySelector(".subtract");
-buttonSubtract.addEventListener("click", () => {
-  if (firstNumber !== "") {
-    display.textContent = operate(firstNumber, subtract, displayValue);
-    displayValue = operate(firstNumber, subtract, displayValue);
-  };
-  display.textContent += "-";
-  operator = "";
-  firstNumber = displayValue;
-  displayValue = "";
-  operator = "-";
-});
-
-let buttonMultiply= document.querySelector(".multiply");
-buttonMultiply.addEventListener("click", () => {
-  if (firstNumber !== "") {
-    display.textContent = operate(firstNumber, multiply, displayValue);
-    displayValue = operate(firstNumber, multiply, displayValue);
-  };
-  display.textContent += "x";
-  operator = "";
-  firstNumber = displayValue;
-  displayValue = "";
-  operator = "*";
-});
-
-let buttonDivide= document.querySelector(".divide");
-buttonDivide.addEventListener("click", () => {
-  if (firstNumber !== "") {
-    display.textContent = operate(firstNumber, divide, displayValue);
-    displayValue = operate(firstNumber, divide, displayValue);
-  };
-  display.textContent += "/";
-  operator = "";
-  firstNumber = displayValue;
-  displayValue = "";
-  operator = "/";
-});
-
-let buttonEquals= document.querySelector(".equals");
-buttonEquals.addEventListener("click", () => {
+let checkOperator = function() {
   switch (operator) {
     case "+":
       display.textContent = operate(firstNumber, add, displayValue);
@@ -166,6 +112,61 @@ buttonEquals.addEventListener("click", () => {
       displayValue = operate(firstNumber, divide, displayValue);
       break;
   };
+};
+
+let buttonAdd= document.querySelector(".add");
+buttonAdd.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    checkOperator();
+  };
+  // This function checks if the firstNumber already has a number saved inside of it.
+  // And if it has, it will call the checkOperator to apply the correct operation before proceeding.
+  display.textContent += "+";
+  operator =  "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator =  "+";
+});
+
+let buttonSubtract= document.querySelector(".subtract");
+buttonSubtract.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    checkOperator();
+  };
+  display.textContent += "-";
+  operator = "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator = "-";
+});
+
+let buttonMultiply= document.querySelector(".multiply");
+buttonMultiply.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    checkOperator();
+  };
+  display.textContent += "x";
+  operator = "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator = "*";
+});
+
+let buttonDivide= document.querySelector(".divide");
+buttonDivide.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    checkOperator();
+  };
+  display.textContent += "/";
+  operator = "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator = "/";
+});
+
+let buttonEquals= document.querySelector(".equals");
+buttonEquals.addEventListener("click", () => {
+  checkOperator();
   firstNumber = ""; // After the = is triggered, it will wipe the firstNumber variable.
 });
 
