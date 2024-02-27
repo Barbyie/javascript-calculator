@@ -11,15 +11,20 @@ const multiply = function(num1, num2) {
 };
 
 const divide = function(num1, num2) {
-  return (num1 / num2);
+  if (num1 === 0 || num2 === 0) {
+    display.textContent = "lmao";
+  }else {
+    return (num1 / num2);
+  };
 };
+
+// These are the 4 main operators that the calculator will use.
 
 const operate = function(num1, operator, num2) {
   return operator(Number(num1), Number(num2));
-};
+}; // This is the function that will calculate the values in the entire code.
 
-let firstNumber = "";
-let secondNumber = "";
+let firstNumber = ""; //This variable will be a placeholder for the first value of displayValue.
 let operator = "";
 let displayValue = "";
 
@@ -85,12 +90,16 @@ buttonNine.addEventListener("click", () => {
   display.textContent += 9;
 });
 
+// One event listener for each button, that will show text in the calculator, and will increase
+// in the displayValue.
+
 let buttonAdd= document.querySelector(".add");
 buttonAdd.addEventListener("click", () => {
   if (firstNumber !== "") {
     display.textContent = operate(firstNumber, add, displayValue);
     displayValue = operate(firstNumber, add, displayValue);
-  };
+  }; // This function checks if the firstNumber already has a number saved inside of it.
+     // And if it has, it will run the operation so that we can proceed to the next one.
   display.textContent += "+";
   operator =  "";
   firstNumber = displayValue;
@@ -100,6 +109,10 @@ buttonAdd.addEventListener("click", () => {
 
 let buttonSubtract= document.querySelector(".subtract");
 buttonSubtract.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    display.textContent = operate(firstNumber, subtract, displayValue);
+    displayValue = operate(firstNumber, subtract, displayValue);
+  };
   display.textContent += "-";
   operator = "";
   firstNumber = displayValue;
@@ -109,6 +122,10 @@ buttonSubtract.addEventListener("click", () => {
 
 let buttonMultiply= document.querySelector(".multiply");
 buttonMultiply.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    display.textContent = operate(firstNumber, multiply, displayValue);
+    displayValue = operate(firstNumber, multiply, displayValue);
+  };
   display.textContent += "x";
   operator = "";
   firstNumber = displayValue;
@@ -118,6 +135,10 @@ buttonMultiply.addEventListener("click", () => {
 
 let buttonDivide= document.querySelector(".divide");
 buttonDivide.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    display.textContent = operate(firstNumber, divide, displayValue);
+    displayValue = operate(firstNumber, divide, displayValue);
+  };
   display.textContent += "/";
   operator = "";
   firstNumber = displayValue;
@@ -145,7 +166,7 @@ buttonEquals.addEventListener("click", () => {
       displayValue = operate(firstNumber, divide, displayValue);
       break;
   };
-  firstNumber = "";
+  firstNumber = ""; // After the = is triggered, it will wipe the firstNumber variable.
 });
 
 let buttonClear= document.querySelector(".clear");
@@ -154,5 +175,6 @@ buttonClear.addEventListener("click", () => {
   displayValue = "";
   display.textContent = "";
   operator = "";
+  // This event listener will reset the operations so that the user can start fresh.
 });
 
