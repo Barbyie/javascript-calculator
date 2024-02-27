@@ -87,6 +87,10 @@ buttonNine.addEventListener("click", () => {
 
 let buttonAdd= document.querySelector(".add");
 buttonAdd.addEventListener("click", () => {
+  if (firstNumber !== "") {
+    display.textContent = operate(firstNumber, add, displayValue);
+    displayValue = operate(firstNumber, add, displayValue);
+  };
   display.textContent += "+";
   operator =  "";
   firstNumber = displayValue;
@@ -141,6 +145,7 @@ buttonEquals.addEventListener("click", () => {
 
 let buttonClear= document.querySelector(".clear");
 buttonClear.addEventListener("click", () => {
+  firstNumber = "";
   displayValue = "";
   display.textContent = "";
   operator = "";
