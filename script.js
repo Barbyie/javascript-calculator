@@ -18,8 +18,8 @@ const operate = function(num1, operator, num2) {
   return operator(Number(num1), Number(num2));
 };
 
-let firstNumber = 0;
-let secondNumber = 0;
+let firstNumber = "";
+let secondNumber = "";
 let operator = "";
 let displayValue = "";
 
@@ -88,30 +88,61 @@ buttonNine.addEventListener("click", () => {
 let buttonAdd= document.querySelector(".add");
 buttonAdd.addEventListener("click", () => {
   display.textContent += "+";
+  operator =  "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator =  "+";
 });
 
 let buttonSubtract= document.querySelector(".subtract");
 buttonSubtract.addEventListener("click", () => {
   display.textContent += "-";
+  operator = "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator = "-";
 });
 
 let buttonMultiply= document.querySelector(".multiply");
 buttonMultiply.addEventListener("click", () => {
   display.textContent += "x";
+  operator = "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator = "*";
 });
 
 let buttonDivide= document.querySelector(".divide");
 buttonDivide.addEventListener("click", () => {
   display.textContent += "/";
+  operator = "";
+  firstNumber = displayValue;
+  displayValue = "";
+  operator = "/";
 });
 
 let buttonEquals= document.querySelector(".equals");
 buttonEquals.addEventListener("click", () => {
-  console.log(displayValue);
+  switch (operator) {
+    case "+":
+      display.textContent = operate(firstNumber, add, displayValue);
+      break;
+    case "-":
+      display.textContent = operate(firstNumber, subtract, displayValue);
+      break;
+    case "*":
+      display.textContent = operate(firstNumber, multiply, displayValue);
+      break;
+    case "/":
+      display.textContent = operate(firstNumber, divide, displayValue);
+      break;
+  };
 });
 
 let buttonClear= document.querySelector(".clear");
 buttonClear.addEventListener("click", () => {
+  displayValue = "";
   display.textContent = "";
+  operator = "";
 });
 
